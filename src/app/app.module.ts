@@ -7,9 +7,11 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
 import {environment} from "../environments/environments.prod";
+import { DataComponent } from './data/data.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+<p>info data</p>
+<table border="1">
+  <thead>
+    <th>
+      n carte
+    </th>
+  <th>
+      n cin
+    </th>
+  <th>
+      password
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of data">
+      <td>{{user.n_carte}}</td>
+      <td>{{user.n_cin}}</td>
+      <td>{{user.password}}</td>
+    </tr>
+  </tbody>
+</table>
