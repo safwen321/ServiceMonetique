@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {addDoc, collection, Firestore} from "@angular/fire/firestore";
+import {  Firestore} from "@angular/fire/firestore";
+import { addDoc,collection, CollectionReference, deleteDoc, updateDoc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +17,25 @@ export class AppComponent {
   payer() {
     console.log(this.user);
     alert("Paiement effectué avec succès");
+    this.add();
   }
-  constructor(private firebase : Firestore) {}
+  private collections: CollectionReference;
+
+  constructor(public firebase : Firestore) {
+    this.collections = collection(this.firebase, 'users')
+  }
   add() {
-    const collectionRef = collection(this.firebase, 'users');
-    addDoc(collectionRef, this.user).then(()=>alert("Merci pour inscrire a bource service")).catch(()=>alert("Erreur"));
+    const userRef = {
+      n_carte : this.user.n_carte,
+      n_cin : this.user.n_cin,
+      password : this.user.password,
+    }
+    addDoc(this.collections, userRef).then((data)=> {
+      alert("Merci pour inscrire a bource service");
+      console.log(data);
+    }).catch((err)=>{
+      console.log(err);
+      alert("Erreur");
+    });
   }
 }

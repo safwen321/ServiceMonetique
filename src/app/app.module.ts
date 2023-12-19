@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import {initializeApp} from "firebase/app";
-import {provideFirebaseApp,initializeApp} from "@angular/fire/app";
-import {getFirestore, provideFirestore} from "@angular/fire/firestore";
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore } from '@angular/fire/firestore';
+import { getFirestore } from 'firebase/firestore';
 import {environment} from "../environments/environments.prod";
 @NgModule({
   declarations: [
